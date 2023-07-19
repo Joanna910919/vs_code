@@ -1,0 +1,24 @@
+###2
+c = float(input())
+r = float(input())
+N = 8
+list_p = []
+maxprofit = 0
+for i in range(N+1):
+    list_p.append(float(input()))
+
+    for quantity in range(N + 1):
+        expSales = 0.0
+        for demand in range(N + 1):
+            if demand < quantity: 
+                expSales += prob[demand] * demand 
+            else: 
+                expSales += prob[demand] * quantity
+                profit = expSales * r - quantity * c 
+if maxprofit == profit == 0:
+    bestq= quantity
+elif maxprofit < profit:
+    maxprofit = profit
+    bestq= quantity
+
+print(int(besttq,int(maxprofit)))
