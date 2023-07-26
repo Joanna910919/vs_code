@@ -1,0 +1,6 @@
+numbers_of_towns = int(input(''))
+x_y_p = [] 
+for i in range(numbers_of_towns):
+    x_y_p.append(input('').split(' '))
+    x_y_p.append(i + 1)
+print(x_y_p[2][1])

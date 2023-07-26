@@ -1,0 +1,65 @@
+# ###2
+# cost = int(input())
+# price = int(input())  
+# maxSales = int(input())
+ 
+# bestAmount = 0
+# bestProfit = 0
+# probSum = 0
+# preSold = 0   # expectations for unsold
+
+# for order in range(maxSales + 1):
+#     prob = float(input())
+#     #(1-propSum)=>the probability of selling "order" pieces of newspaper
+#     #sold為每次賣出份數*其機率的總和
+    
+#     sold = (1 - probSum) * order + preSold 
+#     profit = sold * price - order * cost
+#     if profit > bestProfit:
+#         bestProfit = profit
+#         bestAmount = order
+     
+#     ######update data
+#     probSum = probSum + prob #sum the prob from order in range(0, maxSales + 1)
+#     preSold = prob * order + preSold 
+     
+# print(bestAmount, int(bestProfit))
+
+
+# read input data
+cost = int(input())
+price = int(input())  
+maxDemand = int(input())
+
+prob = [0] * (maxDemand + 1)   # the list to store probabilities
+for i in range(maxDemand + 1):
+    prob[i] = float(input())
+
+# prepare to search for an optimal quantity
+optQty = 0
+optProfit = 0.0
+
+# in each iteration, we calculate the expected profit
+# of that order quantity
+for quantity in range(maxDemand + 1):
+    # calculate the expected profit
+    # this part is similar to that in
+    # the practice quiz in Week 4
+    expSales = 0.0
+    expUnsold = 0.0
+
+    for demand in range(maxDemand + 1):
+        if demand < quantity:
+            expSales += prob[demand] * demand
+        else:
+            expSales += prob[demand] * quantity
+
+    profit = expSales * price - quantity * cost
+
+    # check whether this quantity is currently an optimal one
+    if profit > optProfit:
+        optProfit = profit
+        optQty = quantity
+
+# print out the result
+print(optQty, int(optProfit))

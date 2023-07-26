@@ -1,0 +1,35 @@
+# numbers_of_days = int(input(''))
+# inventory = 0
+# initial_of_shortage = 0 
+# counts_of_shortage = 0
+
+# for i in range(numbers_of_days):
+#     inventory += int(input(''))
+#     if inventory < 0:
+#         counts_of_shortage += 1
+#         if counts_of_shortage == 1:
+#             initial_of_shortage = i + 1
+        
+
+# if inventory < 0:
+#     print(initial_of_shortage)
+# else:
+#     print(inventory)
+
+
+
+days = int(input(''))
+inventory = 0
+initial_shortage = 0
+counts_shortage = 0
+for i in range(days):
+    inventory += int(input(''))
+    if inventory < 0:
+        counts_shortage += 1
+        if counts_shortage == 1:
+            initial_shortage = i + 1  ##這裡會忘記
+if counts_shortage > 0:  #是否缺貨過
+    print(initial_shortage)
+else:
+    print(inventory)
+        

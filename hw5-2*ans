@@ -1,0 +1,47 @@
+# read input data
+cityNum, selectNum, coverageRadius = input().split()
+cityNum = int(cityNum)
+selectNum = int(selectNum)
+coverageRadius = int(coverageRadius)
+
+cityInfo = [] # the list to store city information
+for i in range(cityNum):
+    cityInfo.append(input().split())
+    # add city no.
+    cityInfo[i].append(i+1)
+
+# prepare to select base stations 
+totalCoverage = 0
+baseStations = []
+# in each iteration, we find the base station that covers the maximum population.
+for i in range(selectNum):
+    maxCoverage = 0
+    maxCoverCity = []
+    selectedStationNo = 0
+    # in each iteration, calculate the square of the distance between the base station candidate and each city
+    for station in cityInfo:
+        coverage = 0
+        coverCity = []
+        for city in cityInfo:
+            distanceSquare = (int(station[0])-int(city[0]))**2 + (int(station[1])-int(city[1]))**2
+            if distanceSquare <= coverageRadius**2:
+                coverage += int(city[2])
+                coverCity.append(city)
+        if coverage > maxCoverage:
+            maxCoverage = coverage
+            selectedStationNo = station[3]
+            maxCoverCity = []
+            for item in coverCity:
+                maxCoverCity.append(item)
+    # remove the cities covered by built station
+    for item in maxCoverCity:
+        cityInfo.remove(item)
+    # update the selected base staitons
+    baseStations.append(selectedStationNo)
+    # update the current total coverage
+    totalCoverage += maxCoverage
+
+# print out the result
+for i in baseStations:
+    print(i, end=' ')
+print(totalCoverage)
