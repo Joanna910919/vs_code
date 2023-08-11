@@ -1,0 +1,88 @@
+numbers_of_products = int(input())
+time_of_assemble = input().split(',')
+time_of_package = input().split(',')
+
+
+int_time_of_assemble = [int(time1) for time1 in time_of_assemble]
+int_time_of_package = [int(time2) for time2 in time_of_package]
+
+all = []
+
+first_toy = int_time_of_assemble[0] + int_time_of_package[0]
+all.append(first_toy)
+
+each = 0
+
+# for i in range(1, numbers_of_products):
+#     each = first_toy + (int_time_of_assemble[i] - int_time_of_package[i - 1])  + int_time_of_package[i]
+#     all.append(each)
+
+
+idle_sum = 0
+
+for id in range(1, numbers_of_products):
+    idle = int_time_of_assemble[id] - int_time_of_package[id - 1]
+    # if idle < 0:
+    #     idle = idle
+    # else:
+    #     idle = idle
+
+    idle_sum += idle
+
+minus = 0
+
+for i in range(1, numbers_of_products):
+    if (int_time_of_assemble[i] - int_time_of_package[i - 1]) < 0:
+        each += ( 0 + int_time_of_package[i])
+        minus += -(int_time_of_assemble[i] - int_time_of_package[i - 1])
+        all.append(each)
+    else:
+        if minus <= 0:      
+            each += (int_time_of_assemble[i] - int_time_of_package[i - 1] + int_time_of_package[i])
+        else:
+            each += (int_time_of_assemble[i] - int_time_of_package[i - 1] + int_time_of_package[i])
+            each -= minus
+        all.append(each)
+    
+
+
+# for i in range(1, numbers_of_products):
+#     each += (int_time_of_assemble[i] - int_time_of_package[i - 1] + int_time_of_package[i])
+#     all.append(each)
+
+for j in range(1, numbers_of_products):
+    all[j] += first_toy
+
+
+        
+      
+all.append(idle_sum + int_time_of_assemble[0])
+
+
+print(all)
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def each_total_time(t1, t2):
+#     time = t1 + t2
+#     return time
+
+# sum = map(each_total_time, int_time_of_assemble, int_time_of_package)
+
+# sum_list = list(sum)
+
+# print(sum_list)
+
