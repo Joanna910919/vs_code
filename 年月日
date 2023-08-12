@@ -1,0 +1,10 @@
+def ymd2dmy(dstr):
+    '''convert date format from ymd to dmy  E.g 20020919 to 19092002'''
+    y1 = dstr[0:4]
+    m1 = dstr[4:6]
+    d1 = dstr[6:8]
+    return d1 + m1 + y1
+
+date = '20020919'
+date2 = ymd2dmy(date)
+print('convert date is', date2)

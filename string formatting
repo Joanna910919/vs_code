@@ -1,0 +1,72 @@
+'''formatting的格式: % <width>.<precision><type-char>
+type-char ==> decimal 十進位整數, float , string'''
+
+prc = 13.8764
+print('Current price: %0.2f' % prc)
+
+print('%s同學您好，您借的書已預期%d天，請儘速歸還。'  %('王大雄', 55))
+print('整數: %5d[欄位長度為5]' %(7))
+print('整數: %10d[欄位長度為10]' %(99))
+print('整數: %-10d[欄位長度為10]' %(99))
+print('浮點數: %5.1f[欄位長度為10]' %(3.141592653589793))
+print('浮點數: %0.5f[欄位長度為0]' %(3.141592653589793))
+print('比較兩個格式: %f與%0.20f' %(3.14, 3.14))
+
+##### F-string
+
+### %-formatting
+name = '大雄'
+print('\n%-string:')
+print('%s弄丟了時光機' %name)
+
+
+### F-string
+print('\nf-string:')
+print(f'{name}弄丟了時光機')
+
+name1 = '小夫'
+count = 2
+print(f'{name1}弄丟了竹蜻蜓{count}次')
+
+print(f'一天有{24 * 60 * 60}秒')
+
+
+for i in range(3, 5):
+    for j in range(1, 10):
+        print(f'\n{i}x{j}={i*j}')
+print()
+
+### f-string with formatting
+
+for i in range(3, 5):
+    for j in range(1, 10):
+        print(f'{i:02d}x{j:02d} = {i * j:03d}')
+
+### %-formatting
+
+total = 1.23456
+print(f'Total = {total:0.2f}')
+
+
+### backslash
+
+actor = '多拉Ａ夢'
+actress = '多拉美'
+actor1 = '多拉Ｂ夢'
+
+msg = f'{actor}是來自22世紀的貓型機器人。'\
+      f'{actor}猜拳經常輸，因為只能初布'\
+      F'來自未來的{actor}，為了滿足大雄的夢想'\
+      '，拿出未來的道具，經常引起騷動。'
+msg1 = (f'{actress}是來自22世紀的貓型機器人。'
+      f'{actress}猜拳經常輸，因為只能初布'
+      F'來自未來的{actress}，為了滿足大雄的夢想'
+      '，拿出未來的道具，經常引起騷動。')
+msg2 = f'''{actor1}是來自22世紀的貓型機器人。
+      {actor1}猜拳經常輸，因為只能初布
+      來自未來的{actor1}，為了滿足大雄的夢想
+      ，拿出未來的道具，經常引起騷動。'''
+print(msg)
+print(msg1)
+print(msg2)
+

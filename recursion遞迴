@@ -1,0 +1,47 @@
+def factorial(n):
+    if n == 0:        ### 0! = 1
+        return 1
+    else:             ### n! = n*(n-1)
+        recurse = factorial(n - 1)
+        result = n * recurse
+        return result
+    
+print(factorial(3))
+
+
+### create guardian
+
+def factorial(n):
+    if not isinstance(n, int):
+        print('Factorial is only defined for integers.')
+        return None
+    elif n < 0:
+        print('Factorial is not defined for negative values.')
+        return None
+    elif n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+    
+
+### debugging --- print out status
+
+### create guardian
+
+def factorial(n):
+    space = ' ' * (4 * n)
+    print(space, 'factorrial', n)
+    if not isinstance(n, int):
+        print('Factorial is only defined for integers.')
+        return None
+    elif n < 0:
+        print('Factorial is not defined for negative values.')
+        return None
+    elif n == 0:
+        print(space, 'returning 1')
+        return 1
+    else:
+        result = n * factorial(n - 1)
+        print(space, 'returning', result)
+        return result
+    

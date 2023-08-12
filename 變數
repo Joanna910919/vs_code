@@ -1,0 +1,76 @@
+def give_total(n):
+    unitp = 1.2   ## local variable (global variable 影響不了)
+    total = unitp * n
+    return total
+  
+uitp = 5   ## global variable
+print(give_total(1)) 
+
+
+def give_total(n):
+    print('Weekend = %d' % weekend)
+    unitp = 1.2 
+    total = unitp * n
+    return total
+
+weekend = True  ## True 對影值 = 1
+m = give_total(5)
+
+
+### Changing Global Variable ###
+
+# give total , v2
+def give_total(n):
+    unitp = 1.2
+    weekend = False
+    print('New Weekend = %d' % weekend)
+    total = unitp * n 
+    return total
+
+weekend = True
+print('Outside, before calling: Weekend = %d' % weekend)  ##True
+m1 = give_total(5)  ##False
+print('Outside: Wekend = %d' % weekend)  ##True
+
+### The 'global' keyword ###
+
+def give_total(n):
+    global weekend
+    print('Weeknd = %d' % weekend)
+    unitp = 1.2
+    weekend = False
+    print('New Weekend = %d' % weekend)
+    total = unitp * n
+    return total
+
+weekend = True
+m1 = give_total(5)
+print('Weekend')
+
+
+### return many value ###
+
+def min_max(x1, x2, x3,x4):
+    r1 = min(x1, x2, x3, x4)
+    r2 = max(x1, x2, x3, x4)
+    return r1, r2
+
+a1 = int(input('Provide input value a1:'))
+a2 = int(input('Provide input value a2:'))
+a3 = int(input('Provide input value a3:'))
+a4 = int(input('Provide input value a4:'))
+
+# out1, out2 = min_max(float(a1), float(a2) ,float(a3) ,float(a4))
+out1, out2 = min_max(a1, a2, a3, a4)
+print('Minimal = ', out1)
+print('Maximal = ', out2)
+
+## EXAMPLE return value = none ##
+def myabs(x):  ###絕對值
+    if x <= 0:
+        return -x
+    if x > 0:
+        return x
+    
+print(myabs(-3.5))
+print(myabs(0))

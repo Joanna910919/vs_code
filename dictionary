@@ -1,0 +1,42 @@
+amount = {'A':75.2, 'B':12}
+amount.get('C', 0.0)
+print(amount)
+amount.setdefault('C',0.0)
+print(amount)
+
+def histogram(seq):
+    d = dict()
+    for element in seq:
+        if element not in d:
+            d[element] = 1
+        else:
+            d[element] += 1
+    return d
+
+h = histogram('brontosaurus')
+print(h)
+
+
+### VS ###
+
+def print_hist(hist):
+    for key in hist:
+        print(key, hist[key])
+
+h = histogram('brontosaurus')
+print(print_hist(h))
+
+def invert_dict(d):
+    inv = dict()
+    for key in d:
+        val = d[key]
+        if val not in inv:
+            inv[val] = [key]
+        else:
+            inv[val].append(key)
+    return inv
+
+hist = histogram('parrot')
+print(hist)
+inverted = invert_dict(hist)
+print(inverted)

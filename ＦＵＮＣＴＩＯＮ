@@ -1,0 +1,4 @@
+abs(-3.2)  ##絕對值
+
+import math
+math.sqrt(81) ###開根號

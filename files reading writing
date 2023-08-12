@@ -1,0 +1,10 @@
+fn1 = "/Users/0919_j/Downloads/PBC111-3_自由練習六_解答.txt"
+fh1 = open(fn1, 'r', encoding = 'utf-8')
+linecount = 0
+for aline in fh1:
+    linecount += 1
+    if len(aline) < 75:
+        print("%02d:%s" %(linecount, aline.strip()))
+    else:
+        print("%02d:%s...(truncated)" %(linecount, aline[0:75]))
+fh1.close()

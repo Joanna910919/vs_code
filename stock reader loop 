@@ -1,0 +1,61 @@
+import csvsorter
+stockfn_tmp1 = '/Users/0919_j/Desktop/stock.csv'
+stockfn_sorted = '/Users/0919_j/Desktop/stock_sorted.csv'
+csvsorter.csvsort(stockfn_tmp1, [0, 2], output_filename=stockfn_sorted, has_header=True)
+
+import csv
+fh4 = open(stockfn_sorted, 'r', encoding = 'utf-8', newline = '')
+reader2 = csv.Dictreader(fh4)
+
+
+import csv
+mktfn = '/Users/0919_j/Desktop/market_return.csv'
+
+fh1 = open(mktfn, 'r', encoding = 'cp950', newline = '')
+reader1 = csv.DictReader(fh1)
+mktret = dict()
+# for arow in reader1:
+#     mktret[arow['年月日']] = float(arow[''])
+fh1.close
+print('Read %d market return data' % len(mktret))
+
+def compute_model(ylist, sdate, mktret):
+    '''ylist: list of stock return
+       sdate: list of return dates
+       mktret: market return dictionary'''
+    xlist = []
+    for i in range(0, len(sdate)):
+        xlist.append(mktret[sdate[i]])
+    if len(xlist) != len(ylist):
+        raise Exception("data lenght Error")
+    return simple_reg(xlist, ylist)
+raise Exception()
+ 
+
+
+### to store stock return and dates
+sret = []
+sdate = ['20020805', '20020806', '20020807', '20020808', '20020809']
+xlist = []
+for i in range(0, len(sdate)):
+    xlist.append(mktret[sdate[i]])
+
+last_coid = ''
+for arow in reader2:
+    this_coid = arow['代碼'].strip()
+    this_name = arow['簡稱'].strip()
+    if (this_coid) != last_coid:
+        if (len(sret) > minlen):   ###run regression here
+            print('Run regression for COID:', last_coid)
+            out1 = compute_model(sret, sdate, mktret)
+
+
+            sret = [float(arow['ROI'].strip())]   ### reset sret and sdate
+            sdate = [arow['MDATE'].strip()]
+    else:
+        sret.appebd(float(arow['ROI'].strip()))
+        sdate.append(arow['MDATE'].strip())
+    last_coid = this_coid
+    last_name = this_name
+
+fh4.close()

@@ -1,0 +1,9 @@
+class Date:
+    def to_string(self):
+        return str(self.year) + '/' + str(self.month) + '/' + str(self.day)
+    
+
+def print_bday_dict (bd_dict):
+    for p in bd_dict.key():
+        b = bd_dict[p]
+        print(p + 'was born at ' + b.to_string())

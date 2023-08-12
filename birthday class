@@ -1,0 +1,60 @@
+class date:
+    pass
+
+def is_leap(year):
+    if year % 400 == 0:
+        return True
+    elif (year % 4 == 0) and (year % 100 != 0):
+        return True
+    else:
+        return False
+    
+def is_valid_date(bday):
+    if (1 <= bday.year <= 300)and (1 <= bday.month <= 12):
+        days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if is_leap(bday.year) == True:
+            days_in_month[1] = 29
+        if 1 <= bday.day <= days_in_month[bday.month - 1]:
+            return True
+    return False
+
+def str_to_date(birthday):
+    d = date()
+    year, month, day = birthday.split('/')
+    d.year = int(year)
+    d.month = int(month)
+    d.day = int(day)
+    return d
+
+bd_dict = dict()
+while True:
+    name = input('name: ')
+    if name == '':
+        break
+
+    birthday = input('birthday(yyyy/mm/dd): ')
+    birthday = str_to_date(birthday)
+    
+    if is_valid_date(birthday) == True:
+        bd_dict[name] = birthday
+    else:
+        print('bad date!')
+
+    if birthday =='':
+        break
+
+    bd_dict[name] = birthday
+
+
+def to_string(bday):
+    return str(bday.year) + '/' + str(bday.month) + '/' + str(bday.day)
+
+def print_bday_dict(bd_dict):
+    for p in bd_dict.key():
+        b = bd_dict[p]
+        print(p + 'was born at' + to_string(b))
+
+# bd_dict = dict()
+# while True:
+
+print(bd_dict)

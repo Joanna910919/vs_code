@@ -1,0 +1,24 @@
+""" common string operation """
+s = 'athletes could not join the parade'
+print(s.capitalize())
+print(s.title())
+print(s.upper())
+print(s.replace('athlete', 'guest'))
+
+s2 = 'media and menia'  ### count: return the number of non-overlapping occurrences
+print(s2.count('ia'))
+
+
+s3 = '02-33661184'
+s3.find('-')
+
+s4 = '12345'    ### is numeric characters 是否都是數字
+s4.isnumeric()
+
+s5 = '1235.2'   ###  點不是數字
+s5.isnumeric()
+
+s9 = '  many space      '  ### remove extra spaces
+print(s9.strip())
+
+print('www.example.com'.strip('cmowz.'))  ### remove given characters

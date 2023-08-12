@@ -1,0 +1,8 @@
+import matplotlib.pyplot as plt 
+from matplotlib.font_manager import FontProperties
+ChineseFont2 = FontProperties(fname = '/System/Library/Fonts/PingFang.ttc')
+fig, ax = plt.subplots()
+
+for i, txt in enumerate(namelist):
+    ax.annotate(txt, (betalist[i],alphalist[i]), ontproperties = ChineseFont2)
+plt.show()

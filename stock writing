@@ -1,0 +1,15 @@
+import csv
+stockfn = "/Users/0919_j/Desktop/stock.txt"
+fh1 = open(stockfn, 'r', encoding = 'cp950', newline = '')
+# cheader  = fh1.readline()
+reader1 = csv.reader(fh1, delimiter = '\t')
+
+stockfn_tmp1 = '/Users/0919_j/Desktop/stock.csv'
+
+fh3 = open(stockfn_tmp1, 'w', encoding = 'utf-8', newline = '')
+writer3 = csv.writer(fh3)
+for arow in reader1:
+    arow = map(lambda x: x.strip(), arow)
+    writer3.writerow(arow)
+
+fh3.close()

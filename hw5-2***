@@ -3,14 +3,13 @@ numbers_of_towns = int(numbers_of_towns)
 picked_towns = int(picked_towns)
 distance_covered = int(distance_covered)
 
-
 x_y_p = []
 for i in range(numbers_of_towns):
-    x_y_p.append(input('').split())
-    x_y_p.append(i + 1)
+    x_y_p.append([int(item) for item in input('').split()])
+    x_y_p[i].append(i + 1)
 
 base_station = []
-sum_covered_ppl = 0    
+sum_covered_ppl = 0
 
 for p in range(picked_towns):
     max_covered_ppl = 0
@@ -20,25 +19,21 @@ for p in range(picked_towns):
         covered_ppl = 0
         covered_city = []
         for item1 in x_y_p:
-            distance = (int(item[0]) - int(item1[0]))**2 + (int(item[1]) - int(item1[1]))**2 
+            distance = (item[0] - item1[0])**2 + (item[1] - item1[1])**2
             if distance <= distance_covered**2:
-                covered_ppl += int(item1[2])
+                covered_ppl += item1[2]
                 covered_city.append(item1)
         if covered_ppl > max_covered_ppl:
             max_covered_ppl = covered_ppl
-            select_number = p[3]
+            select_number = item[3]
             max_covered_city = []
             for c in covered_city:
                 max_covered_city.append(c)
-    for c in range(max_covered_city):
+    for c in max_covered_city:
         x_y_p.remove(c)
     base_station.append(select_number)
     sum_covered_ppl += max_covered_ppl
 
 for q in base_station:
-    print(i, end = ' ')
+    print(q, end=' ')
 print(sum_covered_ppl)
-
-
-
-

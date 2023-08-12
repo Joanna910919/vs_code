@@ -1,0 +1,37 @@
+### mutable and immutable objects ###
+my_list = [34, 26, 15, 10]
+print(my_list[2])
+
+my_list[2] = 0
+print(my_list)
+
+my_string = 'Hello Wolrd'
+print(my_string[2])
+
+# print(my_list = 'p')
+
+
+### passing in immutable objects
+
+def swap1(x1, x2):
+    tmp = x1
+    x1 = x2
+    x2 = tmp
+    print('Inside swap1: x1 = ', x1, 'x2 = ', x2)
+
+x1, x2 = 100, 5
+print('Outside: x1 = ', x1, 'x2 = ', x2)
+swap1(x1, x2)
+print('Outside: x1 = ', x1, 'x2 = ', x2) 
+
+## passing in mutable objects
+def swap2(xlist):
+    tmp = xlist[0]
+    xlist[0] = xlist[1]
+    xlist[1] = tmp
+    print('Inside swap2: xlist = ', xlist)
+
+xlist = [100,5]
+print('Ouside: xlist = ', xlist)
+swap2(xlist)
+print('Inside: = ', xlist)

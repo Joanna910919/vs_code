@@ -1,0 +1,36 @@
+class Date:
+    def is_later_than(self, a_date):
+        if self.year > a_date.year:
+            return True
+        elif self.year == a_date.year:
+            if self.month > a_date.month:
+                return True
+        elif self.month == a_date.month:
+            if self.day > a_date.day:
+                return True
+        return False
+
+
+    def to_string(self):
+        return str(self.year) + '/' + str(self.month) + '/' + str(self.day)
+        
+
+def str_to_date(birthday):
+    d = Date()
+    year, month, day = birthday.split('/')
+    d.year = int(year)
+    d.month = int(month)
+    d.day = int(day)
+    return d
+
+
+day1 = input('yyyy/mm/dd:')
+day1 = str_to_date(day1)
+
+day2 = input('yyyy/mm/dd:')
+day2 = str_to_date(day2)
+
+if day1.is_later_than(day2):
+    print(day1.to_string() + 'is later than ' + day2.to_string())
+else:
+    print(day1.to_string() + 'is not later than ' + day2.to_string())

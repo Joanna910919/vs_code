@@ -1,0 +1,17 @@
+import csv
+stockfn = "/Users/0919_j/Desktop/stock.txt"
+fh1 = open(stockfn, 'r', encoding = 'cp950', newline = '')
+# cheader = fh1.readline()
+reader2 = csv.reader(fh1, delimiter = '\t')
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+print(next(reader2))
+
+fh1.close

@@ -1,0 +1,62 @@
+###版本一
+
+def over_mother ():
+    print('Over the hills and far away')
+    print('Mother duck said quack quack quack')
+
+# print('Five little ducks went out one day')
+# over_mother()
+# print('But only four little ducks came back')
+# print()
+# print('Four little ducks went out one day')
+# over_mother()    
+# print('But only theree little ducks came back')
+# print()
+# print('Three little ducks went out one day')
+# over_mother()
+# print('But only two little ducks came back')
+
+
+###版本二
+
+def n_ducks(num):      ## num = parameter 接收 
+    print('%s little ducks went out one day' %num)
+
+def only_n(num):
+    print('Bu only %s little ducks came back' %num)
+
+# n_ducks('Five')  ## Five = argument 確切數值（要帶入的）
+# over_mother()
+# only_n('Four')
+# print()
+# n_ducks('Four')
+# over_mother()
+# only_n('Three')
+# print()
+# n_ducks('Three')
+# over_mother()
+# only_n('Two')
+
+
+###版本三
+
+def sing_unit(num1, num2):
+    n_ducks(num1)
+    over_mother()
+    only_n(num2)
+
+sing_unit('Five', 'Four')
+print()
+sing_unit('Four', 'Three')
+print()
+sing_unit('Three', 'Two')
+
+
+##教學
+
+def print_msg(item, ndays = 30):
+    print('please return %s in %d days' %(item, ndays))
+
+print_msg('items')
+print_msg('items', 50)
+print_msg(ndays = 25, item = 'books')

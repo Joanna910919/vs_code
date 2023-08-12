@@ -1,0 +1,12 @@
+msg = '晚上七點星巴克見'
+for achr in msg:
+    print(ord(achr), end = ' ')
+print()
+
+code = '26202 19978 19971 40670 26143 24052 20811 35211'
+tmpcode = code.split(' ')
+
+msg1 = ''
+for acode in tmpcode:
+    msg1 += chr(int(acode))
+print('msg = ', msg1)

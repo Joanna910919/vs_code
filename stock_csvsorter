@@ -1,0 +1,4 @@
+import csvsorter
+stockfn_tmp1 = '/Users/0919_j/Desktop/stock.csv'
+stockfn_sorted = '/Users/0919_j/Desktop/stock_sorted.csv'
+csvsorter.csvsort(stockfn_tmp1, [0, 2], output_filename=stockfn_sorted, has_header=True)

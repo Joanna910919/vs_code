@@ -1,0 +1,8 @@
+code = '21830 31649 31243 24335 35373 35336'
+tmpcode = code.split(' ')
+
+msg = ''
+for acode in tmpcode:
+    msg += chr(int(acode))
+
+print('msg =', msg )

@@ -1,0 +1,5 @@
+''' tuples is same as lists, immutable, must have COMMA '''
+
+mytuple = (11, 22, 33)
+print(mytuple[0])
+print(mytuple[0:1])

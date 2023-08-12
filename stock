@@ -1,0 +1,9 @@
+stockfn = "/Users/0919_j/Desktop/stock.txt"
+fh1 = open(stockfn, 'r', encoding = 'cp950')
+aline = fh1.readline()
+print(aline)
+
+aline = fh1.readline()
+print(aline)
+
+fh1.close

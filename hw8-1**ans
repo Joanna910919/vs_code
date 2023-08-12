@@ -1,0 +1,51 @@
+# n, m = map(int, input().split(' '))
+# color_on_wall = [1] * n
+# color_order = []
+# answer_list = []
+
+# for i in range(m):
+#     start, end, color = map(int, input('').split(' '))
+#     color_order.append(color)
+#     for j in range(start, end + 1):
+#         color_on_wall[j] = color
+
+# for color in color_order:
+#     cnt = color_on_wall.count(color)
+#     answer_list.append(f'{cnt} {color}')
+
+# print(';'.join(answer_list))
+
+# 輸入牆壁長度和操作次數
+n, m = map(int, input().split(' '))
+
+# 建立一個長度為 n 的串列，初始化為全 1，表示每個位置的牆壁顏色都是 1
+color_on_wall = [1] * n
+
+# 用於儲存操作的顏色順序
+color_order = []
+
+# 用於儲存每種顏色的數量和顏色編號
+answer_list = []
+
+# 根據操作次數進行操作
+for i in range(m):
+    # 輸入操作的起始位置、結束位置和顏色
+    start, end, color = map(int, input('').split(' '))
+    
+    # 將顏色添加到顏色順序串列中
+    color_order.append(color)
+    
+    # 對操作區間進行著色
+    for j in range(start, end + 1):
+        color_on_wall[j] = color
+
+# 遍歷顏色順序串列，統計每種顏色的數量，然後添加到答案串列中
+for color in color_order:
+    # 使用串列的 count 方法來統計指定顏色在牆壁上的數量
+    cnt = color_on_wall.count(color)
+    
+    # 將數量和顏色編號組合成字串，並添加到答案串列中
+    answer_list.append(f'{cnt} {color}')
+
+# 將答案串列中的結果用分號連接起來並輸出
+print(';'.join(answer_list))
